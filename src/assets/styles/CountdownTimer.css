@@ -1,0 +1,63 @@
+/* CountdownTimer.css */
+.timer {
+  padding: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #333;
+}
+
+.timer h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.timer select {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.timer .time-display {
+  font-size: 48px;
+  font-family: monospace;
+  margin: 16px 0;
+}
+
+.timer .controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.timer .controls button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.timer .controls button:hover {
+  opacity: 0.8;
+}
+
+.timer .controls button:nth-child(1) {
+  background-color: #3b82f6;
+}
+
+.timer .controls button:nth-child(2) {
+  background-color: #ef4444;
+}
+
+.timer .controls button:nth-child(3) {
+  background-color: #6b7280;
+}
