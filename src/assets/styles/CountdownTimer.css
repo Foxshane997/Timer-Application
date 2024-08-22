@@ -1,6 +1,43 @@
 .timer {
   text-align: center;
   font-family: 'Arial', sans-serif;
+  background: #e0e0e0; 
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: fit-content; 
+}
+
+select {
+  padding: 10px 30px 10px 10px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  border: none;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  appearance: none;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #333;
+  pointer-events: none;
 }
 
 .circle {
@@ -19,7 +56,7 @@
 .circle svg {
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg); /* Start from the top of the circle */
+  transform: rotate(-90deg);
 }
 
 .background-circle {
@@ -31,8 +68,8 @@
 .progress-circle {
   fill: none;
   stroke: #4caf50;
-  stroke-width: 10;
-  stroke-dasharray: 320; /* Adjusted for neumorphism */
+  stroke-width: 15;
+  stroke-dasharray: 510; /* Adjusted circumference for better fit */
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear;
 }
@@ -44,7 +81,8 @@
   transform: translate(-50%, -50%);
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: #666;
+  text-shadow: 1px 1px 2px #bebebe, -1px -1px 2px #ffffff;
 }
 
 .controls {

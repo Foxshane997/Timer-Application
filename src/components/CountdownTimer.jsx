@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../assets/styles/CountdownTimer.css";
 
 const CountdownTimer = () => {
-  const [time, setTime] = useState(1200); // Default to 20 minutes (1200 seconds)
-  const [selectedTime, setSelectedTime] = useState(1200); // Default selected time
+  const [time, setTime] = useState(2400); // Default to 40 minutes (2400 seconds)
+  const [selectedTime, setSelectedTime] = useState(2400); // Default selected time
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const CountdownTimer = () => {
   const calculateStrokeOffset = (elapsedTime) => {
     const circumference = 283;
     const timeRatio = time / selectedTime;
-    const maxStroke = (selectedTime / 1200) * circumference; // 20 minutes as the max
+    const maxStroke = (selectedTime / 2400) * circumference; // 40 minutes as the max
     const offset = maxStroke * timeRatio;
     return circumference - offset;
   };
@@ -59,12 +59,16 @@ const CountdownTimer = () => {
   return (
     <div className="timer">
       <h1>Countdown Timer</h1>
-      <select value={selectedTime / 60} onChange={handleTimeChange}>
-        <option value={5}>5 minutes</option>
-        <option value={10}>10 minutes</option>
-        <option value={15}>15 minutes</option>
-        <option value={20}>20 minutes</option>
-      </select>
+      <div className="select-wrapper">
+        <select value={selectedTime / 60} onChange={handleTimeChange}>
+          <option value={5}>5 minutes</option>
+          <option value={10}>10 minutes</option>
+          <option value={15}>15 minutes</option>
+          <option value={20}>20 minutes</option>
+          <option value={30}>30 minutes</option>
+          <option value={40}>40 minutes</option>
+        </select>
+      </div>
       <div className="circle">
         <svg>
           <circle cx="50%" cy="50%" r="45%" className="background-circle" />
