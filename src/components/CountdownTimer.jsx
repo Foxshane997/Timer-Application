@@ -46,14 +46,16 @@ const CountdownTimer = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  const radius = 90; // Radius of the circle
+  const circumference = 2 * Math.PI * radius;
+
   const calculateStrokeOffset = (elapsedTime) => {
-    const circumference = 283;
-    const timeRatio = time / selectedTime;
-    const maxStroke = (selectedTime / 2400) * circumference; // 40 minutes as the max
-    const offset = maxStroke * timeRatio;
-    return circumference - offset;
+    const timeRatio = elapsedTime / selectedTime;
+    const offset = circumference * (1 - timeRatio);
+    return offset;
   };
 
+  const strokeDasharray = circumference;
   const strokeDashoffset = isRunning ? calculateStrokeOffset(time) : calculateStrokeOffset(selectedTime);
 
   return (
@@ -70,22 +72,22 @@ const CountdownTimer = () => {
         </select>
       </div>
       <div className="circle">
-        <svg>
-          <circle cx="50%" cy="50%" r="45%" className="background-circle" />
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r={radius} className="background-circle" />
           <circle
-            cx="50%"
-            cy="50%"
-            r="45%"
+            cx="100"
+            cy="100"
+            r={radius}
             className="progress-circle"
-            style={{ strokeDashoffset }}
+            style={{ strokeDasharray, strokeDashoffset }}
           />
         </svg>
         <div className="time-text">{formatTime(time)}</div>
       </div>
       <div className="controls">
-        <button onClick={handleStart}>Start</button>
-        <button onClick={handleStop}>Stop</button>
-        <button onClick={handleReset}>Reset</button>
+        <button className="start" onClick={handleStart}>Start</button>
+        <button className="stop" onClick={handleStop}>Stop</button>
+        <button className="reset" onClick={handleReset}>Reset</button>
       </div>
     </div>
   );
